@@ -1,7 +1,15 @@
-appControllers.controller('spaceCtrl', function ($scope) {
+(function () {
+    'use strict'
 
-});
+    appControllers.controller('spaceCtrl', SpaceController);
+    SpaceController.$inject=['currentSpace'];
+    function SpaceController (currentSpace) {
+           this.me = currentSpace.name;
 
-appControllers.controller('spaceHomeCtrl', function ($scope) {
+    };
 
-});
+    appControllers.controller('spaceHomeCtrl', function ($scope) {
+
+    });
+
+})();
