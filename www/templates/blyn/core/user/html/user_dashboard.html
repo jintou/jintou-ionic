@@ -7,32 +7,32 @@
 
 <ion-view view-title="My Dashboard">
 
-      
-    <!--<ion-content id="dashboard-content">-->
-         <ion-content>
 
-        <div class="list card" margin='5px 2px'>
- 
+    <!--<ion-content id="dashboard-content">-->
+    <ion-content>
+
+        <!--<div class="list card" margin='5px 2px'>
+
             <a href="#/user/profile" class="item item-icon-left ">
                 <i class="icon ion-home"></i>
-                 <div>My Profile</div>
-                 <div>My personal details</div>
-                   
+                <div>My Profile</div>
+                <div>My personal details</div>
+
             </a>
 
             <a href="#/user/trade" class="item item-icon-left">
-                <i class="icon ion-ios-telephone"></i> 
-                 <div>My Trade</div>
-                 <div>My trading details</div>
+                <i class="icon ion-ios-telephone"></i>
+                <div>My Trade</div>
+                <div>My trading details</div>
             </a>
 
             <a href="#/user/finance" class="item item-icon-left">
-                <i class="icon ion-wifi"></i> 
-                 <div>My Finance</div>
-                 <div>My finance status</div>
+                <i class="icon ion-wifi"></i>
+                <div>My Finance</div>
+                <div>My finance status</div>
             </a>
 
-            
+
             <a href="#/user/favorite" class="item item-icon-left">
                 <i class="icon ion-start"></i>
                 <div> My Favorite</div>
@@ -40,15 +40,67 @@
             </a>
 
             <a href="#/user/space/home" class="item item-icon-left">
-                <i class="icon ion-card"></i> 
-                 <div>My Space</div>
-                 <div>My personal space</div>
+                <i class="icon ion-card"></i>
+                <div>My Space</div>
+                <div>My personal space</div>
             </a>
+            <ion-list>
+                <ion-item ng-repeat="space in vm.mySpaces">
+                    <a>{{space.name}}</a>
+                </ion-item>
+            </ion-list>
 
-        </div>
-    
+        </div>-->
 
-      
+
+
+
+        <ion-list>
+
+            <ion-item 
+                <a ui-sref="user.profile" class="item item-icon-left ">
+                <i class="icon ion-home"></i>
+                <div>My Profile</div>
+                <div>My personal details</div>
+                </a>
+            </ion-item>
+
+            <ion-item 
+                <a ui-sref="user.trade" class="item item-icon-left">
+                <i class="icon ion-ios-telephone"></i>
+                <div>My Trade</div>
+                <div>My trading details</div>
+                </a>
+            </ion-item>
+
+            <ion-item 
+                <a ui-sref="user.finance" class="item item-icon-left">
+                <i class="icon ion-wifi"></i>
+                <div>My Finance</div>
+                <div>My finance status</div>
+                </a>
+            </ion-item>
+
+            <ion-item 
+                <a ui-sref="user.favorite" class="item item-icon-left">
+                <i class="icon ion-start"></i>
+                <div> My Favorite</div>
+                <div> My favorite things</div>
+                </a>
+            </ion-item>
+
+          
+            <ion-item ng-repeat="space in vm.mySpaces" 
+                <a ui-sref="user.space({spaceId: space._id})" class="item item-icon-left">
+                    <i class="icon ion-start"></i>
+                    <div>{{space.name}}</div>
+                    <div>{{space.alias}}</div>
+                </a>
+            </ion-item>
+
+        </ion-list>
+
+
     </ion-content>
     <!--end dashboard section-->
 </ion-view>
