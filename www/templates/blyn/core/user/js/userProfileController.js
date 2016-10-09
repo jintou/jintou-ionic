@@ -1,5 +1,5 @@
 (function(){
-    appControllers.controller('userProfileCtrl', function ($scope) {
+    appControllers.controller('userProfileCtrl', function () {
 
            this.me = "My Profile";
     });

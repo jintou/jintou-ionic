@@ -1,6 +1,6 @@
 (function(){
     
-    appControllers.controller('userFavoriteCtrl', function ($scope) {
+    appControllers.controller('userFavoriteCtrl', function () {
         this.me = "My Favorite";
     });
 

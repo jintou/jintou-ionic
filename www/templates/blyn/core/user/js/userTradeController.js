@@ -1,5 +1,5 @@
 (function(){
-     appControllers.controller('userTradeCtrl', function ($scope) {
+     appControllers.controller('userTradeCtrl', function () {
         this.me = "My Trade";
     });
 
