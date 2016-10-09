@@ -1,5 +1,5 @@
 (function(){
-    appControllers.controller('userFinanceCtrl', function ($scope) {
+    appControllers.controller('userFinanceCtrl', function () {
           this.me = "My Finance";
     });
 })();
