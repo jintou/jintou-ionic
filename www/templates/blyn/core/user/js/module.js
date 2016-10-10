@@ -30,7 +30,7 @@ angular.module('starter')
                     }
                 }
             })
-             .state('user.trade', {
+            .state('user.trade', {
                 url: "/trade",
                 params: {
                     isAnimated: false
@@ -42,7 +42,7 @@ angular.module('starter')
                     }
                 }
             })
-              .state('user.finance', {
+            .state('user.finance', {
                 url: "/finance",
                 params: {
                     isAnimated: false
@@ -54,7 +54,7 @@ angular.module('starter')
                     }
                 }
             })
-              .state('user.favorite', {
+            .state('user.favorite', {
                 url: "/favorite",
                 params: {
                     isAnimated: false
@@ -65,5 +65,27 @@ angular.module('starter')
                         controller: 'userFavoriteCtrl as vm'
                     }
                 }
+            })
+            .state('user.space', {
+                url: "/space "
+                , params: {
+                    spaceId: -1
+                }
+                , views: {
+                    'menuContent': {
+                        templateUrl: "templates/blyn/core/space/html/userSpace.html",
+                        controller: 'spaceCtrl as vm'
+                    }
+                }                               
+            //     ,resolve: {
+            //         currentSpace: function ($stateParams, $q, BSpace) {
+            //             console.log("resolve user.space");
+            //             if ($stateParams.spaceId) {
+            //                  console.log("spaceId = " +  $stateParams.spaceId);
+            //                 BSpace.setCurrent($stateParams.spaceId);
+            //                 return BSpace.getCurrent();
+            //             }
+            //         }
+            //     }
             })
     })
