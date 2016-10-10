@@ -23,7 +23,7 @@ appServices.factory('BSpace', function ($http) {
 
         return loadConfig().then(function (config) {
             config = config;
-            return this.findSpace(data).then(function (space) {
+            return that.findSpace(data).then(function (space) {
                 current = space;
                 return $q.when(current);
             })
@@ -32,7 +32,7 @@ appServices.factory('BSpace', function ($http) {
 
     //return promise
     service.findSpace = function (findData) {
-
+        
     }
 
     //return a promise
