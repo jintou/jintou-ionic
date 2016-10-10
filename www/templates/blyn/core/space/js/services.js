@@ -1,4 +1,4 @@
-appServices.factory('BSpace', function () {
+appServices.factory('BSpace', function ($http) {
 
     var service = {};
     var current = {};

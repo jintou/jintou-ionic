@@ -77,15 +77,15 @@ angular.module('starter')
                         controller: 'spaceCtrl as vm'
                     }
                 }                               
-                ,resolve: {
-                    currentSpace: function ($stateParams, $q, BSpace) {
-                        console.log("resolve user.space");
-                        if ($stateParams.spaceId) {
-                             console.log("spaceId = " +  $stateParams.spaceId);
-                            BSpace.setCurrent($stateParams.spaceId);
-                            return BSpace.getCurrent();
-                        }
-                    }
-                }
+            //     ,resolve: {
+            //         currentSpace: function ($stateParams, $q, BSpace) {
+            //             console.log("resolve user.space");
+            //             if ($stateParams.spaceId) {
+            //                  console.log("spaceId = " +  $stateParams.spaceId);
+            //                 BSpace.setCurrent($stateParams.spaceId);
+            //                 return BSpace.getCurrent();
+            //             }
+            //         }
+            //     }
             })
     })

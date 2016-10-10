@@ -2,9 +2,15 @@
     'use strict'
 
     appControllers.controller('spaceCtrl', SpaceController);
-    SpaceController.$inject=['currentSpace'];
-    function SpaceController (currentSpace) {
-           this.me = currentSpace.name;
+    SpaceController.$inject=['$stateParams', '$q', 'BSpace'];
+    function SpaceController ($stateParams, $q, BSpace) {
+        var spaceId = $stateParams.spaceId;
+     
+         console.log("spaceId: " + spaceId);
+          BSpace.setCurrent(spaceId);
+         var  currentSpace =  BSpace.getCurrent();
+           
+         this.me = currentSpace.name;
 
     };
 
