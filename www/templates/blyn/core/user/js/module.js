@@ -66,26 +66,26 @@ angular.module('starter')
                     }
                 }
             })
-            .state('user.space', {
-                url: "/space "
-                , params: {
-                    spaceId: -1
-                }
-                , views: {
-                    'menuContent': {
-                        templateUrl: "templates/blyn/core/space/html/userSpace.html",
-                        controller: 'spaceCtrl as vm'
-                    }
-                }                               
-            //     ,resolve: {
-            //         currentSpace: function ($stateParams, $q, BSpace) {
-            //             console.log("resolve user.space");
-            //             if ($stateParams.spaceId) {
-            //                  console.log("spaceId = " +  $stateParams.spaceId);
-            //                 BSpace.setCurrent($stateParams.spaceId);
-            //                 return BSpace.getCurrent();
-            //             }
-            //         }
-            //     }
-            })
+        //.state('user.space', {
+        //    url: "/space "
+        //    , params: {
+        //        spaceId: -1
+        //    }
+        //    , views: {
+        //        'menuContent': {
+        //            templateUrl: "templates/blyn/core/space/html/userSpace.html",
+        //            controller: 'spaceCtrl as vm'
+        //        }
+        //    }                               
+        //     ,resolve: {
+        //         currentSpace: function ($stateParams, $q, BSpace) {
+        //             console.log("resolve user.space");
+        //             if ($stateParams.spaceId) {
+        //                  console.log("spaceId = " +  $stateParams.spaceId);
+        //                 BSpace.setCurrent($stateParams.spaceId);
+        //                 return BSpace.getCurrent();
+        //             }
+        //         }
+        //     }
+        //})
     })

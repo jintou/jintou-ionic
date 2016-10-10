@@ -352,23 +352,23 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 templateUrl: "templates/blyn/core/user/html/user_menu.html",
                 controller: 'userMenuCtrl'
             })
-            // .state('user.space', {
-            //     url: "/space",
-            //     params: {
-            //         spaceId: null
-            //     },
-            //     //abstract: true,
-            //     templateUrl: "templates/blyn/core/space/html/userSpace.html",
-            //     controller: 'spaceCtrl',
-            //     resolve: {
-            //         currentSpace: function ($stateParams, $q, spaceService) {
-            //             if ($stateParams.spaceId) {
-            //                 spaceService.setCurrent($stateParams.spaceId);
-            //                 return spaceService.getCurrent();
-            //             }
-            //         }
-            //     }
-            // })
+            .state('user.space', {
+                url: "/space",
+                params: {
+                    spaceId: -1
+                },
+                //abstract: true,
+                templateUrl: "templates/blyn/core/space/html/userSpace.html",
+                controller: 'spaceCtrl as vm',
+                resolve: {
+                    currentSpace: function ($stateParams, $q, BSpace) {
+                        if ($stateParams.spaceId) {
+                            return BSpace.setCurrent($stateParams.spaceId);
+                            //return BSpace.getCurrent();
+                        }
+                    }
+                }
+            })
             .state('user.space.app', {
                 url: "/app",
                 params: {
@@ -378,9 +378,9 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 templateUrl: "templates/blyn/core/app/html/menu.html",
                 controller: 'appCtrl',
                 resolve: {
-                    currentApp: function ($stateParams, $q, appService) {
+                    currentApp: function ($stateParams, $q, BApp) {
                         if ($stateParams.appId) {
-                            return appService.getCurrent(appId);
+                            return BApp.getCurrent(appId);
                         }
                     }
                 }
