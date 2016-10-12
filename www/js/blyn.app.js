@@ -355,16 +355,16 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             .state('user.space', {
                 url: "/space",
                 params: {
-                    spaceId: null
+                    spaceId: -1
                 },
                 //abstract: true,
                 templateUrl: "templates/blyn/core/space/html/userSpace.html",
-                controller: 'spaceCtrl',
+                controller: 'spaceCtrl as vm',
                 resolve: {
-                    currentSpace: function ($stateParams, $q, spaceService) {
+                    currentSpace: function ($stateParams, $q, BSpace) {
                         if ($stateParams.spaceId) {
-                            spaceService.setCurrent($stateParams.spaceId);
-                            return spaceService.getCurrent();
+                            return BSpace.setCurrent($stateParams.spaceId);
+                            //return BSpace.getCurrent();
                         }
                     }
                 }
@@ -378,9 +378,9 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 templateUrl: "templates/blyn/core/app/html/menu.html",
                 controller: 'appCtrl',
                 resolve: {
-                    currentApp: function ($stateParams, $q, appService) {
+                    currentApp: function ($stateParams, $q, BApp) {
                         if ($stateParams.appId) {
-                            return appService.getCurrent(appId);
+                            return BApp.getCurrent(appId);
                         }
                     }
                 }

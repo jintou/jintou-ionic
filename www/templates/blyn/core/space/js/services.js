@@ -1,4 +1,4 @@
-appServices.factory('BSpace', function () {
+appServices.factory('BSpace', function ($http, $q, BApi) {
 
     var service = {};
     var current = {};
@@ -23,7 +23,7 @@ appServices.factory('BSpace', function () {
 
         return loadConfig().then(function (config) {
             config = config;
-            return this.findSpace(data).then(function (space) {
+            return that.loadSpace(data).then(function (space) {
                 current = space;
                 return $q.when(current);
             })
@@ -31,14 +31,26 @@ appServices.factory('BSpace', function () {
     }
 
     //return promise
-    service.findSpace = function (findData) {
-
+    service.loadSpace = function (findData) {
+        if (!isNaN(findData) && findData > 0) {
+            return BApi.space.get({
+                id: findData
+            }).$promise;
+        }
+        else if (angular.isString(findData)) {
+            return BApi.space.get({
+                name: findData
+            }).$promise;
+        } else {
+            return $q.when(null);
+        }
     }
 
     //return a promise
     var loadConfig = function (path) {
         return $http.get("templates/blyn/core/space/config.json").then(function (oConfig) {
-            config = oConfig;
+            config = oConfig.data;
+            return $q.when(config);
         })
     }
 
